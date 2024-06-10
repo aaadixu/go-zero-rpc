@@ -20,6 +20,7 @@ var configFile = flag.String("f", "etc/userrpc.yaml", "the config file")
 
 func main() {
 	flag.Parse()
+	//
 
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
