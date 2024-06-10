@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package rpc;
+
+option go_package = "./user";
+
+message UserQueryRequest{
+  int64 id = 1;
+}
+message UserQueryResponse{
+  int64 id = 1;
+  string username = 2;
+  uint32 age = 3;
+  string gender = 4;
+  string address = 5;
+}
+message UserCreateRequest{
+  string username = 1;
+  string password = 2;
+}
+
+message UserCreateResponse{
+  int64 id = 1;
+  string username = 2;
+}
+
+
+
+service User {
+  rpc getUserInfo(UserQueryRequest) returns (UserQueryResponse);
+  rpc createUser(UserCreateRequest) returns (UserCreateResponse);
+}
